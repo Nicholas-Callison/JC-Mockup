@@ -16,8 +16,8 @@ function config_load() {
 /**
  * Get desired value from config file
  *
- * @param $section section of config file
- * @param $key key value of section
+ * @param $section string section of config file
+ * @param $key string key value of section
  *
  * @return mixed value stored under that key
  */
@@ -30,8 +30,8 @@ function config_get($section, $key) {
 /**
  * Get desired value from config file as type boolean
  *
- * @param $section section of config file
- * @param $key key value of section
+ * @param $section string section of config file
+ * @param $key string key value of section
  *
  * @return bool value stored under that key
  */

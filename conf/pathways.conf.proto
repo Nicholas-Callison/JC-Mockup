@@ -1,0 +1,11 @@
+[database]
+dsn_prefix = mysql
+host = localhost
+socket = none
+name = jc_pathways
+user = jc_pathways
+password = extremelysecurepassword
+
+[options]
+maintenance = no
+maintenance-exceptions = 127.0.0.1

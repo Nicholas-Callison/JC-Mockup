@@ -65,7 +65,7 @@ function valid_passwd($uid, $passwd) {
  */
 function try_login() {
     $error = '';
-    $new_sid = '';
+    $sid = '';
     $uid = null;
     
     if (!isset($_REQUEST["user"]) && !isset($_REQUEST["passwd"])) {

@@ -1,6 +1,8 @@
 <?php
 set_include_path(get_include_path() . PATH_SEPARATOR . '../lib');
 
+include_once("pathways.inc.php");
+
 $path = $_SERVER['PATH_INFO'];
 $tokens = explode('/', $path);
 
@@ -15,4 +17,13 @@ if (config_get_bool('options', 'maintenance') && (empty($tokens))) {
     }
 }
 
-/* TODO: Write crap here for what page should be displayed based on URL */
+if (get_route($path) !== NULL){
+    include get_route($path);
+} else {
+    switch ($path) {
+        default:
+            header("HTTP/1.0 404 Not Found");
+            include "./404.php";
+            break;
+    }
+}

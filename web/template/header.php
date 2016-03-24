@@ -1,1 +1,1 @@
-<?php /* TODO: Add header of page here */ ?>
+<?php /* TODO: Add header of page here */

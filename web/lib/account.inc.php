@@ -100,4 +100,65 @@ function try_login() {
 
     $logged_in = 0;
     $num_tries = 0;
+
+    while (!$logged_in && $num_tries < 5) {
+        $session_limit = config_get_int('options', 'max_sessions_per_user');
+        if ($session_limit) {
+            $q = "DELETE s.* ";
+            $q.= "FROM Sessions s ";
+            $q.= "LEFT JOIN (SELECT sid FROM Sessions ";
+            $q.= "WHERE uid = " . $uid . " ";
+            $q.= "ORDER BY ts DESC ";
+            $q.= "LIMIT " . ($session_limit - 1) . ") q ";
+            $q.= "ON s.sid = q.sid ";
+            $q.= "WHERE s.uid = " . $uid . " ";
+            $q.= "AND q.sid IS NULL";
+            $dbh->query($q);
+        }
+
+        $sid = new_sid();
+        $q = "INSERT INTO Sessions (uid, sid, ts) ";
+        $q.= "VALUES (" . $uid . ", '" . $sid . "', UNIX_TIMESTAMP())'";
+        $result = $dbh->exec($q);
+
+        if (!$result) {
+            $logged_in = 1;
+            break;
+        }
+
+        $num_tries += 1;
+    }
+
+    if (!$logged_in) {
+        $error = "An error occurred trying to create a user session.";
+        return array(
+            'SID' => $sid,
+            'error' => $error,
+        );
+    }
+
+    $q = "UPDATE Users ";
+    $q.= "SET last_login_ts = UNIX_TIMESTAMP, last_ip = " . $dbh->quote($_SERVER['REMOTE_ADDR']. " ");
+    $q.= "WHERE uid = " . $uid;
+    $dbh->exec($q);
+
+    if (isset($_POST['remember']) && $_POST['remember'] == "yes") {
+        $timeout = config_get_int('options', 'cookie_timeout');
+        $cookie_time = time() + $timeout;
+
+        $q = "UPDATE Sessions SET ts = $cookie_time ";
+        $q.= "WHERE sid = '$sid'";
+        $dbh->exec($q);
+    } else {
+        $cookie_time = 0;
+    }
+
+    setcookie('PSID', $sid, $cookie_time, "/", NULL, !empty($_SERVER['HTTPS']), true);
+
+    $referrer = in_request('referer');
+    if (strpos($referrer, pw_location()) !== 0) {
+        $referrer = "/";
+    }
+    header("Location: " . get_uri($referrer));
+    $error = "";
 }

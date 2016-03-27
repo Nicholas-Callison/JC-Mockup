@@ -5,6 +5,7 @@ include_once("permissions.inc.php");
 $ROUTES = array(
     '' => 'home.php',
     '/index.php' => 'home.php',
+    '/login' => 'login.php',
 );
 
 $ADMIN_PATH = '/admin';

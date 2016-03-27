@@ -121,7 +121,7 @@ function uid_from_sid($sid="") {
  *
  * @param $uid int User id of user to check
  *
- * @return bool true if user is suspended or fale if not
+ * @return bool true if user is suspended or false if not
  */
 function user_suspended($uid) {
     $dbh = DB::connect();
@@ -163,6 +163,33 @@ function new_sid() {
 function html_header($title="") {
     include 'header.php';
     return;
+}
+
+/**
+ * Get username from a session id
+ *
+ * @param sid string SID of session
+ *
+ * @return string Username associated with SID
+ */
+function username_from_sid($sid) {
+    if (!sid) {
+        return 0;
+    }
+
+    $dbh = DB::connect();
+    $q = "SELECT Users.username ";
+    $q.= "FROM Users, Sessions ";
+    $q.= "WHERE Users.id = Sessions.uid ";
+    $q.= "AND Sessions.sid = " . $dbh->quote($sid);
+    $result = $dbh->query($q);
+
+    if (!$result) {
+        return 0;
+    }
+
+    $row = $result->fetch(PDO::FETCH_NUM);
+    return $row[0];
 }
 
 /**

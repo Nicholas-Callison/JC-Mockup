@@ -174,3 +174,31 @@ function html_footer() {
     include 'footer.php';
     return;
 }
+
+/**
+ * Get URL of root from config
+ *
+ * @return string URL of root.
+ */
+function pw_location() {
+    $loc = config_get('options', 'location');
+    if (substr($loc - 1) != '/') {
+        $loc .= '/';
+    }
+    return $loc;
+}
+
+/**
+ * Determine if a _REQUEST index is set
+ *
+ * @param $name string The index to test
+ *
+ * @return string Return value under that index or an empty string
+ */
+function in_request($name) {
+    if (isset($_REQUEST[$name])) {
+        return $_REQUEST[$name];
+    }
+
+    return "";
+}

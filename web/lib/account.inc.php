@@ -138,7 +138,7 @@ function try_login() {
     }
 
     $q = "UPDATE Users ";
-    $q.= "SET last_login_ts = UNIX_TIMESTAMP, last_ip = " . $dbh->quote($_SERVER['REMOTE_ADDR']. " ");
+    $q.= "SET last_login_ts = UNIX_TIMESTAMP(), last_ip = " . $dbh->quote($_SERVER['REMOTE_ADDR'] . " ");
     $q.= "WHERE uid = " . $uid;
     $dbh->exec($q);
 
@@ -155,7 +155,7 @@ function try_login() {
 
     setcookie('PSID', $sid, $cookie_time, "/", NULL, !empty($_SERVER['HTTPS']), true);
 
-    $referrer = in_request('referer');
+    $referrer = in_request('referrer');
     if (strpos($referrer, pw_location()) !== 0) {
         $referrer = "/";
     }

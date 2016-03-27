@@ -21,3 +21,11 @@ function get_route($path) {
         return NULL;
     }
 }
+
+function get_uri($path, $abs=false) {
+    if ($abs) {
+        return rtrim(pw_location(), '/') . $path;
+    } else {
+        return $path;
+    }
+}

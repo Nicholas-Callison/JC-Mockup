@@ -162,3 +162,28 @@ function try_login() {
     header("Location: " . get_uri($referrer));
     $error = "";
 }
+
+/**
+ * Clear all sessions that have been expired
+ *
+ * @return void
+ */
+function clear_expired_sessions() {
+    $dbh = DB::connect();
+    $timeout = config_get_int('options', 'login_timeout');
+    $q = "DELETE FROM Sessions WHERE ts < (UNIX_TIMESTAMP() - " . $timeout . ")";
+    $dbh->exec($q);
+}
+
+/**
+ * Delete session
+ *
+ * @param $sid int SID to delete
+ *
+ * @return void
+ */
+function delete_session_id($sid) {
+    $dbh = DB::connect();
+    $q = "DELETE FROM Sessions WHERE sid = " . $dbh->quote($sid);
+    $dbh->exec($q);
+}

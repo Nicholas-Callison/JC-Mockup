@@ -68,7 +68,7 @@ function try_login() {
     $sid = '';
     $uid = null;
     
-    if (!isset($_REQUEST["user"]) && !isset($_REQUEST["passwd"])) {
+    if (!isset($_REQUEST["user"]) && !isset($_REQUEST["password"])) {
         return array(
             'sid' => '',
             'error' => NULL,
@@ -90,7 +90,7 @@ function try_login() {
             'SID' => '',
             'error' => $error,
         );
-    } elseif (!valid_passwd($uid, $_REQUEST["passwd"])) {
+    } elseif (!valid_passwd($uid, $_REQUEST["password"])) {
         $error = "Bad username or password";
         return array(
             'SID' => '',

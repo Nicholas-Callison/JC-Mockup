@@ -2,7 +2,7 @@
 
 include_once("confparser.inc.php");
 
-class Database {
+class DB {
 
     /**
      * Database object
@@ -24,7 +24,7 @@ class Database {
                 $user = config_get('database', 'user');
                 $pass = config_get('database', 'password');
 
-                $dsn = $dsn_prefix . ';host=' . $host;
+                $dsn = $dsn_prefix . ':host=' . $host;
                 
                 /* special consideration for unix users */
                 if ($socket != 'none') {
@@ -35,7 +35,7 @@ class Database {
                 self::$dbh = new PDO($dsn, $user, $pass);
                 self::$dbh->exec("SET NAMES 'utf8' COLLATE 'utf8_general_ci");
             } catch (PDOException $e) {
-                die('Error - Could not connect to database!');
+                die("Error - Could not connect to database!");
             }
         }
 

@@ -9,3 +9,5 @@ password = extremelysecurepassword
 [options]
 maintenance = no
 maintenance-exceptions = 127.0.0.1
+disable-http-login = no
+location = http://127.0.0.1/index.php

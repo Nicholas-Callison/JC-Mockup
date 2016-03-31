@@ -209,7 +209,7 @@ function html_footer() {
  */
 function pw_location() {
     $loc = config_get('options', 'location');
-    if (substr($loc - 1) != '/') {
+    if (substr($loc, -1) != '/') {
         $loc .= '/';
     }
     return $loc;

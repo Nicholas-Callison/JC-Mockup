@@ -13,8 +13,8 @@ define("PERM_DEGREE_DELETE", 10);
 
 /* list of user types */
 define("USER_GENERIC", 1);
-define("USER_ADMIN", 2);
-define("USER_EDITOR", 3);
+define("USER_EDITOR", 2);
+define("USER_ADMIN", 3);
 
 /**
  * Determine if a user has the required permissions to perform an action

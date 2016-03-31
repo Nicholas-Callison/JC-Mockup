@@ -21,6 +21,9 @@ CREATE TABLE Users (
   INDEX (type)
 ) ENGINE = InnoDB;
 
+-- Add admin user with password admin
+INSERT INTO Users VALUES (1, 'admin', 'someone@jccmi.edu', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '', 'Administrator', 0, 0, NULL, 3);
+
 -- Session information
 --
 CREATE TABLE Sessions (

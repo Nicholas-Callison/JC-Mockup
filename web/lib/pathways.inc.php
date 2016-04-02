@@ -18,7 +18,7 @@ include_once("permissions.inc.php");
 /**
  * Check if viewer is logged in via a cookie
  * 
- * @global array $_COOKIE User cookie
+ * @global $_COOKIE array User cookie
  * 
  * @return void
  */
@@ -156,7 +156,7 @@ function new_sid() {
 /**
  * Common header displayed on all pages.
  *
- * @param title string Name of page to be displayed
+ * @param $title string Name of page to be displayed
  *
  * @return void
  */
@@ -168,7 +168,7 @@ function html_header($title="") {
 /**
  * Get username from a session id
  *
- * @param sid string SID of session
+ * @param $sid string SID of session
  *
  * @return string Username associated with SID
  */

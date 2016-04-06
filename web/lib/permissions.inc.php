@@ -29,5 +29,27 @@ function has_permission($credential, $approved_users=array()) {
         return false;
     }
 
+    $uid = uid_from_sid($_COOKIE['PSID']);
+    if (in_array($uid, $approved_users)) {
+        return true;
+    }
 
+    $account_type = account_from_sid($_COOKIE['PSID']);
+    
+    switch ($credential) {
+        case PERM_ACCOUNT_CHANGE_TYPE:
+        case PERM_ACCOUNT_LAST_LOGIN:
+        case PERM_PATHWAYS_DELETE:
+        case PERM_DEGREE_DELETE:
+            return ($account_type == USER_ADMIN);
+        case PERM_PATHWAYS_ADD:
+        case PERM_PATHWAYS_EDIT:
+        case PERM_DEGREE_ADD:
+        case PERM_DEGREE_EDIT:
+        case PERM_ACCOUNT_ADD:
+        case PERM_ACCOUNT_EDIT:
+            return ($account_type == USER_EDITOR || $account_type == USER_ADMIN);
+    }
+
+    return false;
 }

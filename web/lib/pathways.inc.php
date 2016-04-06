@@ -229,3 +229,31 @@ function in_request($name) {
 
     return "";
 }
+
+/**
+ * Get the user's account type from an sid
+ *
+ * @param $sid string Client's sid
+ *
+ * @return int Account type
+ */
+function account_from_sid($sid="") {
+    if (!$sid) {
+        return "";
+    }
+
+    $dbh = DB::connect();
+    $q = "SELECT type ";
+    $q.= "FROM Users, Sessions ";
+    $q.= "WHERE Users.id = Sessions.uid ";
+    $q.= "AND Sessions.sid = " . $dbh->quote($sid);
+
+    $result = $dbh->query($q);
+    if (!$result) {
+        return "";
+    }
+
+    $row = $result->fetch(PDO::FETCH_NUM);
+
+    return $row[0];
+}

@@ -24,7 +24,7 @@ define("USER_ADMIN", 3);
  *
  * @return bool Return true if user has permission, otherwise false
  */
-function has_permission($credential, $approved_users=array()) {
+function has_permission($permission, $approved_users=array()) {
     if (!isset($_COOKIE['ID'])) {
         return false;
     }
@@ -36,7 +36,7 @@ function has_permission($credential, $approved_users=array()) {
 
     $account_type = account_from_sid($_COOKIE['PSID']);
     
-    switch ($credential) {
+    switch ($permission) {
         case PERM_ACCOUNT_CHANGE_TYPE:
         case PERM_ACCOUNT_LAST_LOGIN:
         case PERM_PATHWAYS_DELETE:

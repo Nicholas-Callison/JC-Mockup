@@ -19,8 +19,8 @@ define("USER_ADMIN", 3);
 /**
  * Determine if a user has the required permissions to perform an action
  *
- * @param credential int The type of action to perform
- * @param approved_users array Additional users to allow
+ * @param $permission int The type of action to perform
+ * @param $approved_users array Additional users to allow
  *
  * @return bool Return true if user has permission, otherwise false
  */

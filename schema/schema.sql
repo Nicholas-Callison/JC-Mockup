@@ -36,7 +36,7 @@ CREATE TABLE Sessions (
 
 -- Department information
 --
-CREATE TABLE Departments (
+CREATE TABLE Pathways (
   id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   dept_chair_id INTEGER UNSIGNED NULL,
@@ -47,17 +47,17 @@ CREATE TABLE Departments (
 
 -- Degree Program information
 --
-CREATE TABLE Programs (
+CREATE TABLE Maps (
   id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   type TINYINT UNSIGNED NOT NULL DEFAULT 1,
   lead_faculty_id INTEGER UNSIGNED NULL,
-  department_id INTEGER UNSIGNED NOT NULL,
+  pathway_id INTEGER UNSIGNED NOT NULL,
   PRIMARY KEY (id),
   INDEX (lead_faculty_id),
-  INDEX (department_id),
+  INDEX (pathway_id),
   FOREIGN KEY (lead_faculty_id) REFERENCES Users(id) ON DELETE NO ACTION,
-  FOREIGN KEY (department_id) REFERENCES Departments(id) ON DELETE CASCADE
+  FOREIGN KEY (pathway_id) REFERENCES Pathways(id) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 -- Semester information
@@ -71,15 +71,15 @@ CREATE TABLE Semesters (
 
 -- Map information
 --
-CREATE TABLE Maps (
+CREATE TABLE MapSemesters (
   id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  program_id INTEGER UNSIGNED NOT NULL,
+  map_id INTEGER UNSIGNED NOT NULL,
   semester_id INTEGER UNSIGNED NOT NULL,
   note TEXT NULL DEFAULT NULL,
   PRIMARY KEY (id),
-  INDEX (program_id),
+  INDEX (map_id),
   INDEX (semester_id),
-  FOREIGN KEY (program_id) REFERENCES Programs(id) ON DELETE CASCADE,
+  FOREIGN KEY (map_id) REFERENCES Maps(id) ON DELETE CASCADE,
   FOREIGN KEY (semester_id) REFERENCES Semesters(id) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
@@ -121,12 +121,12 @@ CREATE TABLE Prerequisites (
 --
 CREATE TABLE MapCourse (
   id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  map_id INTEGER UNSIGNED NOT NULL,
+  map_semester_id INTEGER UNSIGNED NOT NULL,
   course_id INTEGER UNSIGNED NOT NULL,
   milestone_activity TEXT NULL DEFAULT NULL,
   course_type TINYINT UNSIGNED NOT NULL DEFAULT 1,
   PRIMARY KEY (id),
-  INDEX (map_id),
-  FOREIGN KEY (map_id) REFERENCES Maps(id) ON DELETE CASCADE,
+  INDEX (map_semester_id),
+  FOREIGN KEY (map_semester_id) REFERENCES MapSemesters(id) ON DELETE CASCADE,
   FOREIGN KEY (course_id) REFERENCES Courses(id) ON DELETE CASCADE
 ) ENGINE = InnoDB;

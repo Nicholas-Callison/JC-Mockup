@@ -92,8 +92,8 @@ function get_dependent_courses($course_id, $program_id) {
     $q.= "AND IN (SELECT c.id ";
     $q.= " FROM Courses c ";
     $q.= " LEFT JOIN MapCourse mc ON mc.course_id = c.id ";
-    $q.= " LEFT JOIN Maps m ON m.id = mc.map_id ";
-    $q.= " LEFT JOIN Programs p ON p.id = m.program_id ";
+    $q.= " LEFT JOIN MapSemesters m ON m.id = mc.map_id ";
+    $q.= " LEFT JOIN Maps p ON p.id = m.program_id ";
     $q.= " WHERE p.id = " . $program_id . ")";
 
     $result = $dbh->query($q);

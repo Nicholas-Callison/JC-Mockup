@@ -1,5 +1,4 @@
-php_value auto_prepend_file "apache_rewrite.php"
-
+php_value auto_prepend_file "../lib/apache_rewrite.php"
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f

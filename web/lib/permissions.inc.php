@@ -25,7 +25,7 @@ define("USER_ADMIN", 3);
  * @return bool Return true if user has permission, otherwise false
  */
 function has_permission($permission, $approved_users=array()) {
-    if (!isset($_COOKIE['ID'])) {
+    if (!isset($_COOKIE['PSID'])) {
         return false;
     }
 

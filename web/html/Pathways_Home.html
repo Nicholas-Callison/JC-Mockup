@@ -36,6 +36,21 @@
   <input type="text" name="search" style="width: 400px; height: 40px;"><br>
   <button>Search</button>
 </div>
+ <a class="search" data-toggle="collapse" data-target="#searchoptions">Advanced Search</a>
+  <div id="searchoptions" class="collapse">
+  <div class="search">
+	<form>
+		<input type="radio" name="sortby" value="maps">Maps</input>
+		<input type="radio" name="sortby" value="courses">Courses</input>
+		<input type="radio" name="sortby" value="semesters">Semesters</input>
+		Year:
+		<select style="width: 70px;">
+			<option value="2016">2016</option>
+			<option value="2017">2017</option>
+		</select>
+	</form>
+</div>
+ </div>
 <div class="container">
   <h2>Prototype Banner</h2>
   <div class="panel-group">
@@ -54,7 +69,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" href="#collapse2">AAS-ACC</a>
+          <a data-toggle="collapse" href="#collapse2">AAS-Accounting</a>
         </h4>
       </div>
       <div id="collapse2" class="panel-collapse collapse">

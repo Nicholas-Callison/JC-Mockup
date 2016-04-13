@@ -109,3 +109,107 @@ function get_dependent_courses($course_id, $program_id) {
 
     return $courses;
 }
+
+/**
+ * Get list of maps
+ *
+ * @param $filter string Text to filter query by
+ * 
+ * @return array Maps
+ */
+function get_map_list($filter="") {
+    $dbh = DB::connect();
+    
+    $q = "SELECT p.name pathway, m.name map ";
+    $q.= "FROM Maps m ";
+    $q.= "LEFT JOIN Pathways p ON m.pathway_id = p.id";
+    if ($filter != "") {
+        $q.= "WHERE m.name LIKE \"%" . $filter . "%\" ";
+        $q.= "OR p.name LIKE \"%" . $filter . "%\"";
+    }
+    
+    $result = $dbh->query($q);
+    if (!$result) {
+        return array();
+    }
+    
+    $maps = array();
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $maps[] = $row;
+    }
+    
+    return $maps;
+}
+
+/**
+ * Get all names and ids of EVERY users
+ * 
+ * @return array Users
+ */
+function get_user_names() {
+    $dbh = DB::connect();
+    
+    $q = "SELECT id, real_name ";
+    $q.= "FROM Users";
+    
+    $result = $dbh->query($q);
+    if (!$result) {
+        return array();
+    }
+    
+    $users = array();
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $users[] = $row;
+    }
+    
+    return $users;
+}
+
+/**
+ * Update pathway information
+ * 
+ * @param $id int Id of pathway to update
+ * @param $name string Name to save
+ * @param $uid int Department chair's user id
+ * 
+ * @return void
+ */
+function update_pathway($id, $name, $uid) {
+    $dbh = DB::connect();
+    
+    $q = "UPDATE Pathways ";
+    $q.= "SET name=" . $name . ", dept_chair_id=" . $uid . " ";
+    $q.= "WHERE id = " . $id;
+    
+    $dbh->exec($q);
+    return;
+}
+
+/**
+ * Insert new pathway into Pathways table
+ * 
+ * @param $name string Name of pathway to add
+ * @param $uid int User id of department chair
+ * 
+ * @return void
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

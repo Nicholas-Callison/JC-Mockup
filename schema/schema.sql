@@ -53,11 +53,13 @@ CREATE TABLE Maps (
   type TINYINT UNSIGNED NOT NULL DEFAULT 1,
   lead_faculty_id INTEGER UNSIGNED NULL,
   pathway_id INTEGER UNSIGNED NOT NULL,
+  start_semester_id INTEGER UNSIGNED NOT NULL,
   PRIMARY KEY (id),
   INDEX (lead_faculty_id),
   INDEX (pathway_id),
   FOREIGN KEY (lead_faculty_id) REFERENCES Users(id) ON DELETE NO ACTION,
-  FOREIGN KEY (pathway_id) REFERENCES Pathways(id) ON DELETE CASCADE
+  FOREIGN KEY (pathway_id) REFERENCES Pathways(id) ON DELETE CASCADE,
+  FOREIGN KEY (start_semester_id) REFERENCES Semesters(id) ON DELETE NO ACTION
 ) ENGINE = InnoDB;
 
 -- Semester information

@@ -23,11 +23,10 @@ echo <<<_END
     </div>
 </div>
 <nav>
-<ul>
+
     <li><button type="button">Sign Out</button></li>
-    <li>Pathways</li>
-    <li>My Courses</li>
-</ul>
+
+
 </nav>
 </head>
 

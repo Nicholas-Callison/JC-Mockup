@@ -1,8 +1,9 @@
+<?php ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Maps</title>
-
+  <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel='stylesheet' id='jc-css'  href='css/jc-css.css' type='text/css' media='all' />
@@ -12,133 +13,152 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
-  <header>
 
-<div id="borderTop">
-    <div id="banner">
-        <img id="logo" src="css/Jc_Logo.png">
+
+<!---Logo--->
+<div class="borderTop">
+    <div class="banner">
+		<a href="https://www.jccmi.edu/">
+        <img class="logo" src="css/Jc_Logo.png">
+		</a>
     </div>
 </div>
 
+<!---Sign Out Button--->
 <nav>
-<ul id="nav">
+<ul class="nava">
     <li><button type="button">Sign Out</button></li>
 </ul>
 </nav>
 
 </head>
 <body>
-
+<!---Program--->
 <div class="container" Style="Padding-top: 54px;">
-  <h3 id="header">Please choose your program of study</h3> 
+  <h3 class="header">Please choose your program of study</h3> 
   <div class="panel-group" Style="padding-top: 20px">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">			
-			<ul id="path">
-				<li id="program"><a Style="pointer-events: none; cursor: default; vertical-align: middle">Accounting</li>
-				<li id="type"><a href=#Associates>Associates</li>
-				<li id="type"><a href=#Account>Certificate</li>
+        <h4 class="panel-title">	
+			<!---Program list--->
+			<ul class="path">
+				<li class="program"><a Style="pointer-events: none; cursor: default; vertical-align: middle">Accounting</li>
+				<li class="type"><a href=#Associates>Associates</li>
+				<li class="type"><a href=#Account>Certificate</li>
 			</ul>
 		</h4>
       </div>
     </div>
   </div>
   
+  <!---Program--->
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <ul id="path">
-				<li id="program"><a Style="pointer-events: none; cursor: default;">Business Administration</li>
-                                <li id="type"><a href=#Bachelor's>Bachelor's</li>
-				<li id="type"><a href=#Associates>Associates</li>
-				<li id="type"><a href=#support>Certificate</li>
+		<!---Program list--->
+          <ul class="path">
+				<li class="program"><a Style="pointer-events: none; cursor: default;">Business Administration</li>
+                <li class="type"><a href=#Bachelor's>Bachelor's</li>
+				<li class="type"><a href=#Associates>Associates</li>
+				<li class="type"><a href=#support>Certificate</li>
 			</ul>
         </h4>
       </div>
     </div>
   </div>
   
+  <!---Program--->
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <ul id="path">
-				<li id="program"><a Style="pointer-events: none; cursor: default;">Computer Networking</li>
-				<li id="type"><a href=#Associates>Associates</li>
-				<li id="type"><a href=#support>Certificate</li>
-                                <li id="type"><a href=#Concentration>Concentration</li>
+		<!---Program list--->
+          <ul class="path">
+				<li class="program"><a Style="pointer-events: none; cursor: default;">Computer Networking</li>
+				<li class="type"><a href=#Associates>Associates</li>
+				<li class="type"><a href=#support>Certificate</li>
+                <li class="type"><a href=#Concentration>Concentration</li>
 			</ul>
         </h4>
       </div>
     </div>
   </div>
   
+  <!---Program--->
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-			<ul id="path">
-				<li id="program"><a Style="pointer-events: none; cursor: default;">Computer Programming Specialist</li>
-				<li id="type"><a href=#Associates>Associates</li>
-				<li id="type"><a href=#Prgoamming>Certificate</li>
+		<!---Program list--->
+			<ul class="path">
+				<li class="program"><a Style="pointer-events: none; cursor: default;">Computer Programming Specialist</li>
+				<li class="type"><a href=#Associates>Associates</li>
+				<li class="type"><a href=#Prgoamming>Certificate</li>
 			</ul>
         </h4>
       </div>
     </div>
   </div>
   
+  <!---Program--->
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <ul id="path">
-				<li id="program"><a Style="pointer-events: none; cursor: default;">Computer Support Specialist</li>
-				<li id="type"><a href=#Associates>Associates</li>
-				<li id="type"><a href=#support>Certificate</li>
+		<!---Program list--->
+          <ul class="path">
+				<li class="program"><a Style="pointer-events: none; cursor: default;">Computer Support Specialist</li>
+				<li class="type"><a href=#Associates>Associates</li>
+				<li class="type"><a href=#support>Certificate</li>
 			</ul>
         </h4>
       </div>
     </div>
   </div>
   
+  <!---Program--->
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <ul id="path">
-				<li id="program"><a Style="pointer-events: none; cursor: default;">Culinary Arts</li>
-				<li id="type"><a href=#Associates>Associates</li>
-				<li id="type"><a href=#Certificate>Certificate</li>
-				<li id="type"><a href=#Concentration>Concentration</li>
-				<li id="type"><a href=#skillSet>Skill Set</li>
+		<!---Program list--->
+          <ul class="path">
+				<li class="program"><a Style="pointer-events: none; cursor: default;">Culinary Arts</li>
+				<li class="type"><a href=#Associates>Associates</li>
+				<li class="type"><a href=#Certificate>Certificate</li>
+				<li class="type"><a href=#Concentration>Concentration</li>
+				<li class="type"><a href=#skillSet>Skill Set</li>
 			</ul>
         </h4>
       </div>
     </div>
   </div>
   
+  <!---Program--->
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <ul id="path">
-				<li id="program"><a Style="pointer-events: none; cursor: default;">Cyber Security</li>
-				<li id="type"><a href=#Associates>Associates</li>
+		<!---Program list--->
+          <ul class="path">
+				<li class="program"><a Style="pointer-events: none; cursor: default;">Cyber Security</li>
+				<li class="type"><a href=#Associates>Associates</li>
 			</ul>
         </h4>
       </div>
     </div>
   </div>
   
+  <!---Program--->
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <ul id="path">
-				<li id="program"><a Style="pointer-events: none; cursor: default;">Digital Photography</li>
-				<li id="type"><a href=#Certificate>Certificate</li>
+		<!---Program list--->
+          <ul class="path">
+				<li class="program"><a Style="pointer-events: none; cursor: default;">Digital Photography</li>
+				<li class="type"><a href=#Certificate>Certificate</li>
 			</ul>
         </h4>
       </div>

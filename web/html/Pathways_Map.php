@@ -1,38 +1,12 @@
-<?php ?>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Maps</title>
-  <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel='stylesheet' id='jc-css'  href='css/jc-css.css' type='text/css' media='all' />
-  <link rel='stylesheet' id='searcharea'  href='css/search.css' type='text/css' media='all' />
-  <!---<link rel='stylesheet' id='jc-print-css'  href='css/header.css' type='text/css' media='print' />--->
-  <link rel='stylesheet' id='jc-font-open-sans-css'  href='css/fonts.css' type='text/css' media='all' />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
+<?php 
 
+	set_include_path(get_include_path() . PATH_SEPARATOR . '../lib');
+	
+	include("pathways.inc.php");
+	html_header();
+	
+?>
 
-<!---Logo--->
-<div class="borderTop">
-    <div class="banner">
-		<a href="https://www.jccmi.edu/">
-        <img class="logo" src="css/Jc_Logo.png">
-		</a>
-    </div>
-</div>
-
-<!---Sign Out Button--->
-<nav>
-<ul class="nava">
-    <li><button type="button">Sign Out</button></li>
-</ul>
-</nav>
-
-</head>
-<body>
 <!---Program--->
 <div class="container" Style="Padding-top: 54px;">
   <h3 class="header">Please choose your program of study</h3> 
@@ -166,6 +140,4 @@
   </div>
 </div>
 
-    
-</body>
-</html>
+<?php html_footer(); ?>

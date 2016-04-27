@@ -2,7 +2,7 @@
 
 ?>
 
-<html>
+
 <footer id="site-footer">
 	<div class="footer-social">
 				<a href="https://www.facebook.com/JacksonCollege/" class="social-icon fa fa-facebook"></a>
@@ -75,5 +75,5 @@
 	</script>
 	<script type='text/javascript' src='https://www.jccmi.edu/wp-content/themes/jc/script.js?ver=1461710635'></script>
 <script type='text/javascript' src='https://www.jccmi.edu/wp-includes/js/wp-embed.min.js?ver=4.4.2'></script>
-
+</body>
 </html>

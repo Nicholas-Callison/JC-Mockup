@@ -4,7 +4,6 @@
 	include("pathways.inc.php");
 	html_header();
 	
-	html_footer();
 ?>
 
 
@@ -20,3 +19,4 @@
 	</tr>
 </table>
 
+<?php html_footer(); ?>

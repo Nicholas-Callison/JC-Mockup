@@ -19,10 +19,10 @@
   
 	
 
-	<div id="borderTop">
-    <div id="banner">
+	<div class="borderTop">
+    <div class="banner">
 		<a href="http://www.jccmi.edu">
-			<img id="logo" src="css/Jc_Logo.png">
+			<img class="logo" src="css/Jc_Logo.png">
 		</a>
     </div>
 	</div>

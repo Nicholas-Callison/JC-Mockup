@@ -17,7 +17,9 @@ if (config_get_bool('options', 'maintenance') && (empty($tokens))) {
     }
 }
 
-if (!empty($tokens[1]) && '/' . $tokens[1] == get_maps_route()) {
+if (!empty($tokens[1]) && '/' . $tokens[1] == get_pathway_route()) {
+    /* TODO: finish this code block */
+} else if (!empty($tokens[1]) && '/' . $tokens[1] == get_program_path()) {
     /* TODO: finish this code block */
 } else if (get_route($path) !== NULL){
     include get_route($path);

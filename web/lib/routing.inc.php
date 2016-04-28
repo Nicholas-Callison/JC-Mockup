@@ -9,8 +9,9 @@ $ROUTES = array(
 );
 
 $ADMIN_PATH = '/admin';
-$MAPS_PATH = '/maps';
+$PATHWAY_PATH = '/pathway';
 $USER_PATH = '/account';
+$PROGRAM_PATH = '/program';
 
 function get_route($path) {
     global $ROUTES;
@@ -31,7 +32,12 @@ function get_uri($path, $abs=false) {
     }
 }
 
-function get_maps_route() {
-    global $MAPS_PATH;
-    return $MAPS_PATH;
+function get_pathway_route() {
+    global $PATHWAY_PATH;
+    return $PATHWAY_PATH;
+}
+
+function get_program_path() {
+    global $PROGRAM_PATH;
+    return $PROGRAM_PATH;
 }

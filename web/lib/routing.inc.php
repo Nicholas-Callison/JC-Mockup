@@ -41,3 +41,8 @@ function get_program_path() {
     global $PROGRAM_PATH;
     return $PROGRAM_PATH;
 }
+
+function get_admin_path() {
+    global $ADMIN_PATH;
+    return $ADMIN_PATH;
+}

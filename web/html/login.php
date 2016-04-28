@@ -10,7 +10,7 @@ if (!$disable_http_login || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'])) {
     $login_error = $login['error'];
 }
 
-html_header('Pathways - Login');
+html_header('Login');
 ?>
 
 <div id="login" class="box">

@@ -1,2 +1,6 @@
 <?php
-echo "home page of nothingness";
+html_header("");
+
+echo "test";
+
+html_footer();

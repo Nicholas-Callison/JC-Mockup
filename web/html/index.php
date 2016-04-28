@@ -32,6 +32,18 @@ if (get_route($path) !== NULL){
      *     break;
      */
     switch ($path) {
+        case "/css/custom.css":
+        case "/css/fonts.css":
+        case "/css/header.css":
+        case "/css/jc-css.css":
+        case "/css/search.css":
+            header("Content-Type: text/css");
+            readfile("./$path");
+            break;
+        case "/images/headerlogo.png":
+            header("Content-Type: image/png");
+            readfile("./$path");
+            break;
         default:
             header("HTTP/1.0 404 Not Found");
             include "./404.php";

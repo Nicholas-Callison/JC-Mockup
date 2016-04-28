@@ -10,10 +10,10 @@
         <meta name="description" content="JC Pathways Database" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel='stylesheet' id='bootstrap' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' type='text/css'>
-		<link rel='stylesheet' id='bootstrapover' href='css/custom.css' type='text/css'>
-		<link rel='stylesheet' id='jc-css'  href='css/jc-css.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrapover' href='/css/custom.css' type='text/css'>
+		<link rel='stylesheet' id='jc-css'  href='/css/jc-css.css' type='text/css' media='all' />
 		<link rel='stylesheet' id='jc-font-font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=4.4.2' type='text/css' media='all' />
-		<link rel='stylesheet' id='jc-font-open-sans-css'  href='css/fonts.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='jc-font-open-sans-css'  href='/css/fonts.css' type='text/css' media='all' />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   

@@ -109,3 +109,62 @@ function get_dependent_courses($course_id, $program_id) {
 
     return $courses;
 }
+
+/**
+ * Get id of pathway from formatted string.
+ *
+ * @param $fmt_name string Name to search for
+ *
+ * @return int ID of pathway
+ */
+function pathway_id_from_name($fmt_name) {
+    $modified_name = preg_replace("/(_)/", ",", $fmt_name);
+    $modified_name = preg_replace("/(-)/", " ", $modified_name);
+    $modified_name = preg_replace("/(and)/", "&", $modified_name);
+    $modified_name = ucwords($modified_name);
+
+    $dbh = DB::connect();
+
+    $q = "SELECT id ";
+    $q.= "FROM Pathways ";
+    $q.= "WHERE name = " . $dbh->quote($modified_name);
+
+    $result = $dbh->query($q);
+
+    if (!$result) {
+        return 0;
+    }
+
+    $row = $result->fetch(PDO::FETCH_NUM);
+    return $row[0];
+}
+
+/**
+ * Get list of unique names of maps
+ *
+ * @param $pathway_id int Pathway id to query for
+ *
+ * @return array List of unique Map names
+ */
+function map_names_by_pathway($pathway_id) {
+    $dbh = DB::connect();
+
+    $q = "SELECT DISTINCT name ";
+    $q.= "FROM Maps ";
+    $q.= "WHERE pathway_id = " . $pathway_id . " ";
+    $q.= "ORDER BY name";
+
+    $result = $dbh->query($q);
+
+    if (!$result) {
+        return array();
+    }
+
+    $name = array();
+    while ($row = $result->fetch(PDO::FETCH_NUM)) {
+        $name[] = $row;
+    }
+
+    return $name;
+}
+

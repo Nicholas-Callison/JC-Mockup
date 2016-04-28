@@ -53,12 +53,22 @@ CREATE TABLE MapTypes (
   PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
+-- Semester information
+--
+CREATE TABLE Semesters (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  year TINYINT UNSIGNED NOT NULL DEFAULT 1,
+  term CHAR(2) NOT NULL DEFAULT 'FL',
+  PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
 -- Degree Program information
 --
 CREATE TABLE Maps (
   id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   type_id TINYINT UNSIGNED NOT NULL DEFAULT 1,
+  start_semester_id TINYINT UNSIGNED NOT NULL DEFAULT 1,
   lead_faculty_id INTEGER UNSIGNED NULL,
   pathway_id INTEGER UNSIGNED NOT NULL,
   PRIMARY KEY (id),
@@ -67,16 +77,8 @@ CREATE TABLE Maps (
   INDEX (type_id),
   FOREIGN KEY (lead_faculty_id) REFERENCES Users(id) ON DELETE NO ACTION,
   FOREIGN KEY (pathway_id) REFERENCES Pathways(id) ON DELETE CASCADE,
-  FOREIGN KEY (type_id) REFERENCES MapTypes(id) ON DELETE NO ACTION
-) ENGINE = InnoDB;
-
--- Semester information
---
-CREATE TABLE Semesters (
-  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  year TINYINT UNSIGNED NOT NULL DEFAULT 1,
-  term CHAR(2) NOT NULL DEFAULT 'FL',
-  PRIMARY KEY (id)
+  FOREIGN KEY (type_id) REFERENCES MapTypes(id) ON DELETE NO ACTION,
+  FOREIGN KEY (start_semester_id) REFERENCES Semesters(id) ON DELETE NO ACTION
 ) ENGINE = InnoDB;
 
 -- Map information

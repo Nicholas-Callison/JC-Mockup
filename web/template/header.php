@@ -22,7 +22,7 @@
 	<div id="borderTop">
     <div id="banner">
 		<a href="http://www.jccmi.edu">
-			<img id="logo" src="css/Jc_Logo.png">
+			<img id="logo" src="images/headerlogo.png">
 		</a>
     </div>
 	</div>

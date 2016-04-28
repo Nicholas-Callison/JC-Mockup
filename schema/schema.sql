@@ -45,19 +45,29 @@ CREATE TABLE Pathways (
   FOREIGN KEY (dept_chair_id) REFERENCES Users(id) ON DELETE NO ACTION
 ) ENGINE = InnoDB;
 
+-- Map Types
+--
+CREATE TABLE MapTypes (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
 -- Degree Program information
 --
 CREATE TABLE Maps (
   id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
-  type TINYINT UNSIGNED NOT NULL DEFAULT 1,
+  type_id TINYINT UNSIGNED NOT NULL DEFAULT 1,
   lead_faculty_id INTEGER UNSIGNED NULL,
   pathway_id INTEGER UNSIGNED NOT NULL,
   PRIMARY KEY (id),
   INDEX (lead_faculty_id),
   INDEX (pathway_id),
+  INDEX (type_id),
   FOREIGN KEY (lead_faculty_id) REFERENCES Users(id) ON DELETE NO ACTION,
-  FOREIGN KEY (pathway_id) REFERENCES Pathways(id) ON DELETE CASCADE
+  FOREIGN KEY (pathway_id) REFERENCES Pathways(id) ON DELETE CASCADE,
+  FOREIGN KEY (type_id) REFERENCES MapTypes(id) ON DELETE NO ACTION
 ) ENGINE = InnoDB;
 
 -- Semester information

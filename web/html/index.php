@@ -17,7 +17,9 @@ if (config_get_bool('options', 'maintenance') && (empty($tokens))) {
     }
 }
 
-if (get_route($path) !== NULL){
+if (!empty($tokens[1]) && '/' . $tokens[1] == get_maps_route()) {
+    /* TODO: finish this code block */
+} else if (get_route($path) !== NULL){
     include get_route($path);
 } else {
 

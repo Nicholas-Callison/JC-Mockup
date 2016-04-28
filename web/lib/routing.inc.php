@@ -9,7 +9,7 @@ $ROUTES = array(
 );
 
 $ADMIN_PATH = '/admin';
-$PATHWAY_PATH = '/pathway';
+$MAPS_PATH = '/maps';
 $USER_PATH = '/account';
 
 function get_route($path) {
@@ -29,4 +29,9 @@ function get_uri($path, $abs=false) {
     } else {
         return $path;
     }
+}
+
+function get_maps_route() {
+    global $MAPS_PATH;
+    return $MAPS_PATH;
 }

@@ -157,7 +157,7 @@ function new_sid() {
  * Common header displayed on all pages.
  *
  * @param $title string Name of page to be displayed
- *
+ * 
  * @return void
  */
 function html_header($title="") {

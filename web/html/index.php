@@ -3,8 +3,10 @@ set_include_path(get_include_path() . PATH_SEPARATOR . '../lib');
 
 include_once("pathways.inc.php");
 
-$path = $_SERVER['PATH_INFO'];
-$tokens = explode('/', $path);
+if (isset($_SERVER['PATH_INFO'])) {
+    $path = $_SERVER['PATH_INFO'];
+    $tokens = explode('/', $path);
+}
 
 /*
  * If maintenance mode is enabled in the conf, make sure that unauthorized users cannot access
@@ -18,7 +20,11 @@ if (config_get_bool('options', 'maintenance') && (empty($tokens))) {
 }
 
 if (!empty($tokens[1]) && '/' . $tokens[1] == get_pathway_route()) {
-    /* TODO: finish this code block */
+    if (empty($tokens[2])) {
+        header("Location: /");
+    }
+
+    include "";
 } else if (!empty($tokens[1]) && '/' . $tokens[1] == get_program_path()) {
     /* TODO: finish this code block */
 } else if (get_route($path) !== NULL){

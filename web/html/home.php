@@ -16,7 +16,7 @@ html_header("");
                             <span class="icon fa fa-fa fa-briefcase"></span>
                             <p class="text">Business &amp; Computer Technology</p>
                         </div>
-                        <a href="https://www.jccmi.edu/pathway/business-computer-technology/" class="content-item-link"><span></span></a>
+                        <a href="<?= get_uri('/pathway/business-and-computer-technology', true) ?>" class="content-item-link"><span></span></a>
                     </div>
                 </li>
                 <li>
@@ -27,7 +27,7 @@ html_header("");
                             <span class="icon fa fa-fa fa-plus-square"></span>
                             <p class="text">Health Sciences</p>
                         </div>
-                        <a href="https://www.jccmi.edu/pathway/health-sciences/" class="content-item-link"><span></span></a>
+                        <a href="<?= get_uri('/pathway/health-sciences', true) ?>" class="content-item-link"><span></span></a>
                     </div>
                 </li>
                 <li>
@@ -38,7 +38,7 @@ html_header("");
                             <span class="icon fa fa-fa fa-users"></span>
                             <p class="text">Human Services</p>
                         </div>
-                        <a href="https://www.jccmi.edu/pathway/human-services/" class="content-item-link"><span></span></a>
+                        <a href="<?= get_uri('/pathway/human-services', true) ?>" class="content-item-link"><span></span></a>
                     </div>
                 </li>
                 <li>
@@ -49,7 +49,7 @@ html_header("");
                             <span class="icon fa fa-fa fa-paint-brush"></span>
                             <p class="text">Liberal Arts</p>
                         </div>
-                        <a href="https://www.jccmi.edu/pathway/liberal-arts/" class="content-item-link"><span></span></a>
+                        <a href="<?= get_uri('/pathway/liberal-arts', true) ?>" class="content-item-link"><span></span></a>
                     </div>
                 </li>
                 <li>
@@ -60,7 +60,7 @@ html_header("");
                             <span class="icon fa fa-fa fa-flask"></span>
                             <p class="text">Science, Engineering &amp; Mathematics</p>
                         </div>
-                        <a href="https://www.jccmi.edu/pathway/science-engineering-mathematics/" class="content-item-link"><span></span></a>
+                        <a href="<?= get_uri('/pathway/science_-engineering-and-mathematics', true) ?>" class="content-item-link"><span></span></a>
                     </div>
                 </li>
                 <li>
@@ -71,7 +71,7 @@ html_header("");
                             <span class="icon fa fa-fa fa-wrench"></span>
                             <p class="text">Skilled Trades &amp; Agriculture</p>
                         </div>
-                        <a href="https://www.jccmi.edu/pathway/skilled-trades/" class="content-item-link"><span></span></a>
+                        <a href="<?= get_uri('/pathway/skilled-trades-and-agriculture', true) ?>" class="content-item-link"><span></span></a>
                     </div>
                 </li>
             </ul>

@@ -168,3 +168,31 @@ function map_names_by_pathway($pathway_id) {
     return $name;
 }
 
+/**
+ * Get a list of map types based on a map name
+ *
+ * @param $name
+ *
+ * @return array Map Types
+ */
+function map_types_by_map_name($name) {
+    $dbh = DB::connect();
+
+    $q = "SELECT t.name name ";
+    $q.= "FROM MapTypes t ";
+    $q.= "LEFT JOIN Maps ON m.type_id = t.id ";
+    $q.= "WHERE m.name = " . $dbh->quote($name);
+
+    $result = $dbh->query($q);
+
+    if (!$result) {
+        return NULL;
+    }
+
+    $types = array();
+    while ($row = $result->fetch(PDO::FETCH_NUM)) {
+        $types[] = $row[0];
+    }
+
+    return $types;
+}

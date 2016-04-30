@@ -118,10 +118,7 @@ function get_dependent_courses($course_id, $program_id) {
  * @return int ID of pathway
  */
 function pathway_id_from_name($fmt_name) {
-    $modified_name = preg_replace("/(_)/", ",", $fmt_name);
-    $modified_name = preg_replace("/(-)/", " ", $modified_name);
-    $modified_name = preg_replace("/(and)/", "&", $modified_name);
-    $modified_name = ucwords($modified_name);
+    $modified_name = purtify_url_string($fmt_name);
 
     $dbh = DB::connect();
 
@@ -162,7 +159,7 @@ function map_names_by_pathway($pathway_id) {
 
     $name = array();
     while ($row = $result->fetch(PDO::FETCH_NUM)) {
-        $name[] = $row;
+        $name[] = $row[0];
     }
 
     return $name;
@@ -178,9 +175,9 @@ function map_names_by_pathway($pathway_id) {
 function map_types_by_map_name($name) {
     $dbh = DB::connect();
 
-    $q = "SELECT t.name name ";
+    $q = "SELECT t.name ";
     $q.= "FROM MapTypes t ";
-    $q.= "LEFT JOIN Maps ON m.type_id = t.id ";
+    $q.= "LEFT JOIN Maps m ON m.type_id = t.id ";
     $q.= "WHERE m.name = " . $dbh->quote($name);
 
     $result = $dbh->query($q);

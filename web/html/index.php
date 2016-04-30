@@ -6,6 +6,9 @@ include_once("pathways.inc.php");
 if (isset($_SERVER['PATH_INFO'])) {
     $path = $_SERVER['PATH_INFO'];
     $tokens = explode('/', $path);
+} else {
+    $path = '/';
+    $tokens = explode('/', $path);
 }
 
 /*
@@ -24,9 +27,15 @@ if (!empty($tokens[1]) && '/' . $tokens[1] == get_pathway_route()) {
         header("Location: " . get_uri('/', true));
     }
 
-    include "";
+    display_programs($tokens[2]);
 } else if (!empty($tokens[1]) && '/' . $tokens[1] == get_program_path()) {
-    /* TODO: finish this code block */
+    if (empty($tokens[2])) {
+        header("Location: " . get_uri('/', true));
+    }
+    if (empty($tokens[3])) {
+        /* TODO: Make this ask which one */
+        header("Location: " . get_uri('/', true));
+    }
 } else if (get_route($path) !== NULL){
     include get_route($path);
 } else {

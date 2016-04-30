@@ -14,6 +14,8 @@ include_once("confparser.inc.php");
 include_once("routing.inc.php");
 include_once("account.inc.php");
 include_once("permissions.inc.php");
+include_once("mapfuncts.inc.php");
+include_once("queryfuncts.inc.php");
 
 /**
  * Check if viewer is logged in via a cookie
@@ -256,4 +258,21 @@ function account_from_sid($sid="") {
     $row = $result->fetch(PDO::FETCH_NUM);
 
     return $row[0];
+}
+
+function urlify_string($string) {
+    $modified_string = strtolower($string);
+    $modified_string = preg_replace("/( )/", "-", $modified_string);
+    $modified_string = preg_replace("/(&)/", "and", $modified_string);
+    $modified_string = preg_replace("/(,)/", "_", $modified_string);
+    return $modified_string;
+}
+
+function purtify_url_string($string) {
+    $modified_name = preg_replace("/(_)/", ",", $string);
+    $modified_name = preg_replace("/(-)/", " ", $modified_name);
+    $modified_name = preg_replace("/(and)/", "&", $modified_name);
+    $modified_name = ucwords($modified_name);
+
+    return $modified_name;
 }

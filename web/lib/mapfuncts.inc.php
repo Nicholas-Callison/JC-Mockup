@@ -17,3 +17,11 @@ function display_programs($pathway_name) {
     include "maplist.php";
     html_footer();
 }
+
+function request_start_semester($path) {
+    html_header("Pathway - ");
+
+    include "semselect.php";
+
+    html_footer();
+}

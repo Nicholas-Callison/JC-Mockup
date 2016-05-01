@@ -36,6 +36,10 @@ if (!empty($tokens[1]) && '/' . $tokens[1] == get_pathway_route()) {
         /* TODO: Make this ask which one */
         header("Location: " . get_uri('/', true));
     }
+    if (empty($tokens[4])) {
+        request_start_semester($path);
+    }
+
 } else if (get_route($path) !== NULL){
     include get_route($path);
 } else {

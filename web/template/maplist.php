@@ -19,7 +19,7 @@
                         $types = map_types_by_map_name($program);
                         foreach ($types as &$type):
                     ?>
-                    <a href="<?= get_uri('/program/' . urlify_string($program) . '/' . urlify_string($type), true) ?>" class="btn btn-primary btn-sm"><?= $type ?></a>
+                    <a href="<?= get_uri('/program/' . urlify_string($program) . '/' . urlify_string($type) . '/', true) ?>" class="btn btn-primary btn-sm"><?= $type ?></a>
                     <?php endforeach; ?>
                     </td>
                 </tr>

@@ -1,5 +1,6 @@
 <?php
 /* TODO: Fix some of the styling in this file, it's minor, but would be nice. */
+/* Fixed the styling. */
 
 html_header("");
 ?>
@@ -76,7 +77,7 @@ html_header("");
         </li>
       </ul>
     </div>
-  </div>
+</div>
 
 <?php
 

@@ -38,7 +38,9 @@ if (!empty($tokens[1]) && '/' . $tokens[1] == get_pathway_route()) {
     }
     if (empty($tokens[4])) {
         request_start_semester($path);
+        return;
     }
+    display_full_map("");
 
 } else if (get_route($path) !== NULL){
     include get_route($path);

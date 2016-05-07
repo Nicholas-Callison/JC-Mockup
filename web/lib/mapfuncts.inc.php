@@ -25,3 +25,11 @@ function request_start_semester($path) {
 
     html_footer();
 }
+
+function display_full_map($path) {
+    html_header();
+    
+    include "semmap.php";
+
+    html_footer();
+}

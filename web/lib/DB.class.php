@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * DB.class.php
+ *
+ * This file is taken from aurweb (projects.archlinux.org/aurweb.git)
+ * and is licensed under the GPLv2 or later.
+ */
+
 include_once("confparser.inc.php");
 
 class DB {

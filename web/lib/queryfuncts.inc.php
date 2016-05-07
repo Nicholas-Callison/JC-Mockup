@@ -15,7 +15,7 @@ function get_semester_courses($map_id) {
 
     $dbh = DB::connect();
 
-    $q = "SELECT c.code code, c.number number, c.title title, c.credits credits, ";
+    $q = "SELECT c.id cid, c.code code, c.number number, c.title title, c.credits credits, ";
     $q.= "m.milestone_activity milestone, m.type type";
     $q.= "FROM MapCourse m";
     $q.= "LEFT JOIN Courses c ON m.course_id = c.id";
@@ -192,4 +192,59 @@ function map_types_by_map_name($name) {
     }
 
     return $types;
+}
+
+function map_by_name_type_start($name, $type, $start) {
+    $dbh = DB::connect();
+
+    $q = "SELECT m.id ";
+    $q.= "FROM Maps m";
+    $q.= "LEFT JOIN MapTypes t ON m.type_id = t.id ";
+    $q.= "LEFT JOIN Semesters s ON m.start_semester_id = s.id ";
+    $q.= "WHERE m.name = " . $dbh->quote($name) . " ";
+    $q.= "AND t.name = " . $dbh->quote($type) . " ";
+    $q.= "AND s.term = " . $dbh->quote($start) . " ";
+    $q.= "AND s.yesr = 1";
+
+    $result = $dbh->query($q);
+
+    $row = $result->fetch(PDO::FETCH_NUM);
+
+    return $row[0];
+}
+
+function map_semester_list($map_id) {
+    $dbh = DB::connect();
+
+    $q = "SELECT m.id, s.year, s.term, m.note ";
+    $q.= "FROM MapSemesters m ";
+    $q.= "LEFT JOIN Semesters s ON m.semseter_id = s.id ";
+    $q.= "WHERE m.map_id = " . $map_id . " ";
+    $q.= "ORDER BY semester_id";
+
+    $result = $dbh->query($q);
+
+    $semesters = array();
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $semesters[] = $row;
+    }
+
+    return $semesters;
+}
+
+function semester_courses($map_sem_id) {
+    $dbh = DB::connect();
+    
+    $q = "SELECT mc.milestone_activity, c.subject_code, c.course_number, c.title, c.name, mc.course_type ";
+    $q.= "WHERE mc.map_semester_id = " . $map_sem_id . " ";
+    $q.= "LEFT JOIN Courses c ON mc.course_id = c.id";
+
+    $result = $dbh->query($q);
+
+    $courses = array();
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $courses[] = $row;
+    }
+
+    return $courses;
 }

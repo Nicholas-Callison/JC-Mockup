@@ -108,7 +108,7 @@
             <?php
                 $depends = get_dependent_courses($course['id'], $map_id);
                 foreach ($depends as &$depend) {
-                    printf("%s-%03d <br />", $prereq['code'], $prereq['number']);
+                    printf("%s-%03d <br />", $depend['code'], $depend['number']);
                 }
             ?>
         </td>
